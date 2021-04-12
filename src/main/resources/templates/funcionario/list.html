@@ -1,10 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-br">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>RodrigoSystems</title>
+    <link
+            rel="stylesheet"
+            th:href="@{/bootstrap-5.0.0/css/bootstrap.min.css}"
+    />
+    <link rel="stylesheet" th:href="@{/fontawesome5.15.3/css/all.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/index.css}">
 </head>
 <body>
-   <p>List</p>
+<nav class="navbar navbar-expand-xl navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" th:href="@{/}">RodrigoSystems</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/funcionario/list}">Funcionários</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<h1>Funcionarios</h1>
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Email</th>
+        <th scope="col">Telefone</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="funcionario: ${funcionarios}">
+        <th scope="row" th:text="${funcionario.id}"></th>
+        <td th:text="${funcionario.nome}"></td>
+        <td th:text="${funcionario.email}"></td>
+        <td th:text="${funcionario.telefone}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<script th:src="@{/js/jquery.min.js}"></script>
+<script th:src="@{/bootstrap-5.0.0/js/bootstrap.min.js}"></script>
 </body>
 </html>

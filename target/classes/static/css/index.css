@@ -1,0 +1,36 @@
+:root {
+  --purple-1: #f9f0ff;
+  --purple-2: #efdbff;
+  --purple-3: #d3adf7;
+  --purple-4: #b37feb;
+  --purple-5: #9254de;
+  --purple-6: #722ed1;
+  --purple-7: #531dab;
+  --purple-8: #391085;
+  --purple-9: #22075e;
+  --purple-10: #120338;
+}
+
+*,
+body,
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: var(--purple-1);
+}
+nav,
+container-fluid {
+  background-color: var(--purple-10) !important;
+}
+.navbar-brand {
+  letter-spacing: 3px;
+  font-weight: bold;
+  text-transform: capitalize;
+  color: var(--purple-6) !important;
+}
+.nav-link {
+  color: var(--purple-3) !important;
+}

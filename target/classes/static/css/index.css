@@ -17,20 +17,60 @@ html {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  color: var(--purple-10)
 }
 body {
   background-color: var(--purple-1);
 }
 nav,
 container-fluid {
-  background-color: var(--purple-10) !important;
+  background-color: var(--purple-1) !important;
+  margin-bottom: 8vh;
+  margin-top: 2vh;
 }
 .navbar-brand {
   letter-spacing: 3px;
   font-weight: bold;
   text-transform: capitalize;
-  color: var(--purple-6) !important;
+  color: var(--purple-8) !important;
 }
 .nav-link {
-  color: var(--purple-3) !important;
+  color: var(--purple-7) !important;
+  font-weight: bold;
+}
+.mark, mark{
+    background-color: var(--purple-7) !important;
+    letter-spacing: 3px;
+    font-weight: bold;
+    text-transform: capitalize;
+    color: var(--purple-1) !important;
+    padding: 0.5em;
+    border-radius: 15px;
+}
+.display-4 {
+    line-height: 1.8;
+}
+.display-4 mark {
+    padding: 0.4em;
+}
+.display-5 {
+    margin-top: 5vh;
+    text-align: center;
+}
+.display-5 a{
+    cursor: pointer !important;
+    text-decoration: underline !important;
+}
+.display-5 a:visited{
+    color: var(--purple-1)
+}
+.table-light {
+    --bs-table-striped-bg: var(--purple-4) !important
+}
+tr{
+    background-color: var(--purple-3) !important
+}
+
+tr .table > :not(caption) > * > * {
+    background: var(--purple-3) !important
 }

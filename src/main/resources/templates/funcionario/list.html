@@ -12,9 +12,9 @@
     <link rel="stylesheet" th:href="@{/css/index.css}">
 </head>
 <body>
-<nav class="navbar navbar-expand-xl navbar-dark">
+<nav class="navbar navbar-expand-md navbar-light">
     <div class="container-fluid">
-        <a class="navbar-brand" th:href="@{/}">RodrigoSystems</a>
+        <a class="navbar-brand" href="@{/}">RodrigOSystemS</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -22,32 +22,37 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" th:href="@{/funcionario/list}">Funcionários</a>
+                    <a class="nav-link"> </a>
                 </li>
             </ul>
+            <span class="navbar-text">
+               <strong>Bem-Vindo ao <mark>RodrigOSystemS</mark></strong>
+            </span>
         </div>
     </div>
 </nav>
-<h1>Funcionarios</h1>
-<table class="table">
-    <thead>
-    <tr>
-        <th scope="col">ID</th>
-        <th scope="col">Nome</th>
-        <th scope="col">Email</th>
-        <th scope="col">Telefone</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="funcionario: ${funcionarios}">
-        <th scope="row" th:text="${funcionario.id}"></th>
-        <td th:text="${funcionario.nome}"></td>
-        <td th:text="${funcionario.email}"></td>
-        <td th:text="${funcionario.telefone}"></td>
-    </tr>
-    </tbody>
-</table>
-
+<div class="container gap-5">
+    <div class="table-responsive">
+        <table class="table table-light table-bordered table-striped table-hover align-middle">
+            <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Email</th>
+                <th scope="col">Telefone</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="funcionario: ${funcionarios}">
+                <th scope="row" th:text="${funcionario.id}"></th>
+                <td th:text="${funcionario.nome}"></td>
+                <td th:text="${funcionario.email}"></td>
+                <td th:text="${funcionario.telefone}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
 <script th:src="@{/js/jquery.min.js}"></script>
 <script th:src="@{/bootstrap-5.0.0/js/bootstrap.min.js}"></script>
 </body>

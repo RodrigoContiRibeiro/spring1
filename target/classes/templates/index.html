@@ -13,9 +13,9 @@
     <link rel="stylesheet" th:href="@{/css/index.css}">
 </head>
 <body>
-<nav class="navbar navbar-expand-xl navbar-dark">
+<nav class="navbar navbar-expand-md navbar-light">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">RodrigoSystems</a>
+        <a class="navbar-brand" href="#">RodrigOSystemS</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -23,13 +23,30 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" th:href="@{/funcionario/list}">Funcionários</a>
+                    <a class="nav-link"> </a>
                 </li>
             </ul>
+            <span class="navbar-text">
+               <strong>Bem-Vindo ao <mark>RodrigOSystemS</mark></strong>
+            </span>
         </div>
     </div>
 </nav>
-<p>Bem Vindo ao RodrigoSystems</p>
+<div class="container gap-5">
+    <div class="row justify-content-md-center mx-auto">
+        <div class="col-md-auto">
+            <h1 class="display-4">
+                <strong>
+                    <mark class="mark">RodrigOSystemS</mark>
+                </strong> é uma empresa criada por <strong><em>Rodrigo Conti Ribeiro</em></strong>,
+                e ela terminará seus <s>problemas</s> com gerenciamento de <u>funcionários!!</u>
+            </h1>
+            <h1 class="display-5">
+                <mark class="mark"><a th:href="@{/funcionario/list}">Use a Demo</a></mark>
+            </h1>
+        </div>
+    </div>
+</div>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"
         integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG"
         crossorigin="anonymous"></script>

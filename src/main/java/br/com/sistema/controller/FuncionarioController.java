@@ -15,7 +15,6 @@ public class FuncionarioController {
     @GetMapping("/funcionario/list")
     public String list(Model model) {
         model.addAttribute("funcionarios", funcionarioService.findAll());
-        System.out.println(funcionarioService.findAll() );
         return "funcionario/list";
     }
 }

@@ -9,6 +9,8 @@
   --purple-8: #391085;
   --purple-9: #22075e;
   --purple-10: #120338;
+  --margin-default: 5vh;
+  --padding-default: 5vh;
 }
 
 *,
@@ -33,6 +35,7 @@ container-fluid {
   font-weight: bold;
   text-transform: capitalize;
   color: var(--purple-8) !important;
+  margin-left: 1vw;
 }
 .nav-link {
   color: var(--purple-7) !important;
@@ -54,7 +57,8 @@ container-fluid {
     padding: 0.4em;
 }
 .display-5 {
-    margin-top: 5vh;
+    margin-top: var(--margin-default);
+    margin-bottom: 10vh;
     text-align: center;
 }
 .display-5 a{
@@ -73,4 +77,30 @@ tr{
 
 tr .table > :not(caption) > * > * {
     background: var(--purple-3) !important
+}
+.diplay-5 .title{
+    margin-bottom: var(--margin-default) !important;
+    font-weight: bolder;
+    background-color: var(--purple);
+}
+#funcs{
+    background-color: var(--purple-6);
+    margin-bottom: var(--margin-default) !important;
+    --bs-gutter-x: 0;
+}
+#funcs-text{
+    margin-bottom: var(--margin-default) !important;
+}
+#funcs-text strong {
+    color: var(--purple-1) !important;
+}
+.footer{
+    background-color: var(--purple-2);
+    margin-top: var(--margin-default) !important;
+    padding-top: var(--padding-default) !important;
+    padding-bottom: var(--padding-default) !important;
+}
+ul {
+    list-style: none;
+    line-height:
 }

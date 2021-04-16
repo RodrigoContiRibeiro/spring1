@@ -19,7 +19,7 @@ html {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  color: var(--purple-10)
+  color: var(--purple-10);
 }
 body {
   background-color: var(--purple-1);
@@ -31,6 +31,7 @@ container-fluid {
   margin-top: 2vh;
 }
 .navbar-brand {
+  font-size: 1.75rem !important;
   letter-spacing: 3px;
   font-weight: bold;
   text-transform: capitalize;
@@ -41,66 +42,86 @@ container-fluid {
   color: var(--purple-7) !important;
   font-weight: bold;
 }
-.mark, mark{
-    background-color: var(--purple-7) !important;
-    letter-spacing: 3px;
-    font-weight: bold;
-    text-transform: capitalize;
-    color: var(--purple-1) !important;
-    padding: 0.5em;
-    border-radius: 15px;
+.mark,
+mark {
+  background-color: var(--purple-7) !important;
+  letter-spacing: 3px;
+  font-weight: bold;
+  text-transform: capitalize;
+  color: var(--purple-1) !important;
+  padding: 0.3em;
+  border-radius: 15px;
 }
 .display-4 {
-    line-height: 1.8;
-}
-.display-4 mark {
-    padding: 0.4em;
+  line-height: 1.8;
 }
 .display-5 {
-    margin-top: var(--margin-default);
-    margin-bottom: 10vh;
-    text-align: center;
+  margin-top: var(--margin-default);
+  margin-bottom: 10vh;
+  text-align: center;
 }
-.display-5 a{
-    cursor: pointer !important;
-    text-decoration: underline !important;
+.display-5 a {
+  cursor: pointer !important;
+  text-decoration: underline !important;
 }
-.display-5 a:visited{
-    color: var(--purple-1)
+.display-5 a:visited {
+  color: var(--purple-1);
 }
 .table-light {
-    --bs-table-striped-bg: var(--purple-4) !important
+  --bs-table-striped-bg: var(--purple-4) !important;
 }
-tr{
-    background-color: var(--purple-3) !important
+tr {
+  background-color: var(--purple-3) !important;
 }
 
 tr .table > :not(caption) > * > * {
-    background: var(--purple-3) !important
+  background: var(--purple-3) !important;
 }
-.diplay-5 .title{
-    margin-bottom: var(--margin-default) !important;
-    font-weight: bolder;
-    background-color: var(--purple);
+
+.icons{
+    text-align: center !important;
+    cursor: pointer;
 }
-#funcs{
-    background-color: var(--purple-6);
-    margin-bottom: var(--margin-default) !important;
-    --bs-gutter-x: 0;
+
+.fas {
+    font-size: 1.2rem;
 }
-#funcs-text{
-    margin-bottom: var(--margin-default) !important;
+
+.fa-trash{
+    color: #f5222d;
+}
+.fa-edit{
+    color: #389e0d;
+}
+
+.diplay-5 .title {
+  margin-bottom: var(--margin-default) !important;
+  font-weight: bolder;
+  background-color: var(--purple);
+}
+#funcs {
+  background-color: var(--purple-6);
+  margin-bottom: var(--margin-default) !important;
+  --bs-gutter-x: 0;
+}
+#funcs-text {
+  margin-bottom: var(--margin-default) !important;
 }
 #funcs-text strong {
-    color: var(--purple-1) !important;
+  color: var(--purple-1) !important;
 }
-.footer{
-    background-color: var(--purple-2);
-    margin-top: var(--margin-default) !important;
-    padding-top: var(--padding-default) !important;
-    padding-bottom: var(--padding-default) !important;
+.footer {
+  background-color: var(--purple-2);
+  margin-top: var(--margin-default) !important;
+  padding-top: var(--padding-default) !important;
+  padding-bottom: var(--padding-default) !important;
 }
 ul {
-    list-style: none;
-    line-height:
+  list-style: none;
+}
+.col-3{
+  width: clamp(50%,50%,100%) !important;
+}
+th .icons{
+    border: none
 }

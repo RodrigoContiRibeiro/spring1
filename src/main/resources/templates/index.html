@@ -15,7 +15,7 @@
 <body>
 <nav class="navbar navbar-expand-md navbar-light">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">RodrigOSystemS</a>
+        <a class="navbar-brand" th:href="@{/}">RodrigOSystemS</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -56,11 +56,11 @@
         </h1>
     </div>
 </div>
-<div class="container justify-content-md-center mx-auto row row-cols-1 row-cols-md-2 g-4 card-group">
+<div class="justify-content-md-center mx-auto row row-cols-1 row-cols-md-2 g-4">
     <div class="col-3">
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title">Criar ou Adicionar Funcionários!!!</h5>
+                <h5 class="card-title">Adicionar os seus Funcionários</h5>
                 <!-- ICON -->
             </div>
         </div>
@@ -68,21 +68,21 @@
     <div class="col-3">
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title">Vizualizar os seus Funcionários!!!</h5>
+                <h5 class="card-title">Vizualizar os seus Funcionários</h5>
             </div>
         </div>
     </div>
     <div class="col-3">
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title">Atualiziar os dados dos Funcionários!!!</h5>
+                <h5 class="card-title">Atualiziar os seus Funcionários</h5>
             </div>
         </div>
     </div>
     <div class="col-3">
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title">Remover qualquer Funcionário!!!</h5>
+                <h5 class="card-title">Remover os seus Funcionário</h5>
             </div>
         </div>
     </div>
@@ -96,9 +96,7 @@
         </ul>
     </div>
 </footer>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"
-        integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG"
-        crossorigin="anonymous"></script>
+<script th:src="@{/js/popper.min.js}"></script>
 <script th:src="@{/bootstrap-5.0.0/js/bootstrap.min.js}"></script>
 </body>
 </html>

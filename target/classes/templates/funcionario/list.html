@@ -1,61 +1,93 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="pt-br">
-<head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>RodrigoSystems</title>
     <link
-            rel="stylesheet"
-            th:href="@{/bootstrap-5.0.0/css/bootstrap.min.css}"
+      rel="stylesheet"
+      th:href="@{/bootstrap-5.0.0/css/bootstrap.min.css}"
     />
-    <link rel="stylesheet" th:href="@{/fontawesome5.15.3/css/all.min.css}"/>
-    <link rel="stylesheet" th:href="@{/css/index.css}">
-</head>
-<body>
-<nav class="navbar navbar-expand-md navbar-light">
-    <div class="container-fluid">
+    <link rel="stylesheet" th:href="@{/fontawesome5.15.3/css/all.min.css}" />
+    <link rel="stylesheet" th:href="@{/css/index.css}" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md navbar-light">
+      <div class="container-fluid">
         <a class="navbar-brand" th:href="@{/}">RodrigOSystemS</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link"> </a>
-                </li>
-            </ul>
-            <span class="navbar-text">
-               <strong>Bem-Vindo ao <mark>RodrigOSystemS</mark></strong>
-            </span>
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link"> </a>
+            </li>
+          </ul>
+          <span class="navbar-text">
+            <strong>Bem-Vindo ao <mark>RodrigOSystemS</mark></strong>
+          </span>
         </div>
+      </div>
+    </nav>
+
+    <div class="container edit-modal">
+      <a
+        th:href="@{/funcionario/add}"
+        class="btn btn-outline-dark"
+        id="addBtn">
+<!--        style="padding: 0 !important" -->
+        <span><i class="fas fa-plus-circle btn-outline-dark"></i></span
+      ></a>
     </div>
-</nav>
-<div class="container gap-5">
-    <div class="table-responsive">
-        <table class="table table-light table-bordered table-striped table-hover align-middle">
-            <thead>
+
+    <div class="container gap-5">
+      <div class="table-responsive">
+        <table
+          class="table table-light table-bordered table-striped table-hover align-middle"
+        >
+          <thead>
             <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Nome</th>
-                <th scope="col">Email</th>
-                <th scope="col" colspan="3">Telefone</th>
+              <th scope="col">ID</th>
+              <th scope="col">Nome</th>
+              <th scope="col">Email</th>
+              <th scope="col" colspan="3">Telefone</th>
             </tr>
-            </thead>
-            <tbody>
+          </thead>
+          <tbody>
             <tr th:each="funcionario: ${funcionarios}">
-                <th scope="row" th:text="${funcionario.id}"></th>
-                <td th:text="${funcionario.nome}"></td>
-                <td th:text="${funcionario.email}"></td>
-                <td th:text="${funcionario.telefone}"></td>
-                <td class="icons"><a><span><i class="fas fa-trash"></i></span></a></td>
-                <td class="icons"><a><span><i class="fas fa-edit"></i></span></a></td>
+              <th scope="row" th:text="${funcionario.id}"></th>
+              <td th:text="${funcionario.nome}"></td>
+              <td th:text="${funcionario.email}"></td>
+              <td th:text="${funcionario.telefone}"></td>
+              <td class="icons">
+                <a
+                  class="btn btn-outline-danger"
+                  th:href="@{/funcionario/delete/{funcionario.id}}"
+                  ><span><i class="fas fa-trash"></i></span
+                ></a>
+              </td>
+              <td class="icons">
+                <a
+                  class="btn btn-outline-success"
+                  th:href="@{/funcionario/edit/${funcionario.id}}"
+                  ><span><i class="fas fa-edit"></i></span
+                ></a>
+              </td>
             </tr>
-            </tbody>
+          </tbody>
         </table>
+      </div>
     </div>
-</div>
-<script th:src="@{/js/popper.min.js}"></script>
-<script th:src="@{/bootstrap-5.0.0/js/bootstrap.min.js}"></script>
-</body>
+    <script th:src="@{/js/popper.min.js}"></script>
+    <script th:src="@{/bootstrap-5.0.0/js/bootstrap.min.js}"></script>
+  </body>
 </html>

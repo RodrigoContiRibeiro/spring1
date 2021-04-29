@@ -4,16 +4,21 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>RodrigoSystems</title>
+    <!-- Importando a folha de estilo do bootstrap -->
     <link
             rel="stylesheet"
             th:href="@{/bootstrap-5.0.0/css/bootstrap.min.css}"
     />
+    <!-- Importando o fontawesome -->
     <link rel="stylesheet" th:href="@{/fontawesome5.15.3/css/all.min.css}"/>
+    <!-- Importando a folha de estilo própria -->
     <link rel="stylesheet" th:href="@{/css/index.css}"/>
 </head>
 <body>
+<!-- Navbar colapsável -->
 <nav class="navbar navbar-expand-md navbar-light">
     <div class="container-fluid">
+        <!-- Link para a raiz -->
         <a class="navbar-brand" th:href="@{/}">RodrigOSystemS</a>
         <button
                 class="navbar-toggler"
@@ -38,13 +43,9 @@
         </div>
     </div>
 </nav>
+<!-- Formulário que não permite criar um novo funcionário somente visualizar uma linha específica -->
 <form th:object="${funcionario}"
       class="form-floating">
-    <!--action="#"
-    th:action="@{/funcionario/save}"
-    method="post"
-    -->
-
     <div class="input group">
         <div class="form-floating mb-3">
             <input
@@ -100,7 +101,7 @@
         </div>
     </div>
 </form>
-
+<!-- Importando os scripts do bootstrap -->
 <script th:src="@{/js/popper.min.js}"></script>
 <script th:src="@{/bootstrap-5.0.0/js/bootstrap.min.js}"></script>
 </body>

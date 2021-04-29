@@ -4,16 +4,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>RodrigoSystems</title>
+    <!-- Importando a folha de estilo do bootstrap -->
     <link
       rel="stylesheet"
       th:href="@{/bootstrap-5.0.0/css/bootstrap.min.css}"
     />
+    <!-- Importando o fontawesome -->
     <link rel="stylesheet" th:href="@{/fontawesome5.15.3/css/all.min.css}" />
+    <!-- Importando a folha de estilo própria -->
     <link rel="stylesheet" th:href="@{/css/index.css}" />
   </head>
   <body>
+<!-- Navbar colapsável -->
     <nav class="navbar navbar-expand-md navbar-light">
       <div class="container-fluid">
+        <!-- Link para a raiz -->
         <a class="navbar-brand" th:href="@{/}">RodrigOSystemS</a>
         <button
           class="navbar-toggler"
@@ -38,17 +43,16 @@
         </div>
       </div>
     </nav>
-
+     <!-- Botão que leva a página para criar novos funcionários -->
     <div class="container edit-modal">
       <a
         th:href="@{/funcionario/add}"
         class="btn btn-outline-dark"
         id="addBtn">
-<!--        style="padding: 0 !important" -->
         <span><i class="fas fa-plus-circle btn-outline-dark"></i></span
       ></a>
     </div>
-
+    <!-- Tabela para mostrar os dados de todos os funcionários -->
     <div class="container gap-5">
       <div class="table-responsive">
         <table
@@ -63,12 +67,14 @@
             </tr>
           </thead>
           <tbody>
+             <!-- Iterando todos as linhas encontrados no tabela de funcionários -->
             <tr th:each="funcionario: ${funcionarios}">
               <th scope="row" th:text="${funcionario.id}"></th>
               <td th:text="${funcionario.nome}"></td>
               <td th:text="${funcionario.email}"></td>
               <td th:text="${funcionario.telefone}"></td>
               <td class="icons">
+              <!-- Botões para editar e/ou exclui uma linha específica -->
                 <a
                   class="btn btn-outline-danger"
                   th:href="@{/funcionario/delete/{funcionario.id}}"
@@ -87,6 +93,7 @@
         </table>
       </div>
     </div>
+    <!-- Importando os scripts do bootstrap -->
     <script th:src="@{/js/popper.min.js}"></script>
     <script th:src="@{/bootstrap-5.0.0/js/bootstrap.min.js}"></script>
   </body>

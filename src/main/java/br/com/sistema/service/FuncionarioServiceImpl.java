@@ -10,10 +10,13 @@ import java.util.Optional;
 
 @Service
 public class FuncionarioServiceImpl implements FuncionarioService {
+    //Implementação da interface para criar uma camada de serviço
 
+    //Acesso ao repositório
     @Autowired
     FuncionarioRepo funcionarioRepo;
 
+    //Sobrescrevendo os métodos da interface
     @Override
     public List<Funcionario> findAll() {
         return funcionarioRepo.findAll();
@@ -28,11 +31,4 @@ public class FuncionarioServiceImpl implements FuncionarioService {
     public Funcionario save(Funcionario funcionario) {
         return funcionarioRepo.save(funcionario);
     }
-
-
-/*      @Override
-        public Funcionario save(Funcionario funcionario){
-        return funcionario;
-    }*/
-
 }

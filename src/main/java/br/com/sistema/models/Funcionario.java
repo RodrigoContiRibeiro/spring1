@@ -9,7 +9,7 @@ import javax.validation.constraints.Size;
 
 @Entity(name = "funcionario")
 public class Funcionario {
-
+    //Usando validataion para criar atributos tipados e modelados
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -26,6 +26,7 @@ public class Funcionario {
     @NotNull
     private String telefone;
 
+    //Getters & Setters
     public Long getId() {
         return id;
     }
@@ -50,7 +51,7 @@ public class Funcionario {
     public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
-
+    //ToString sobrecarregado
     @Override
     public String toString() {
         return "Funcionario: " +

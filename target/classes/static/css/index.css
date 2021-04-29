@@ -78,20 +78,59 @@ tr .table > :not(caption) > * > * {
   background: var(--purple-3) !important;
 }
 
-.icons{
-    text-align: center !important;
-    cursor: pointer;
+i,
+.icons {
+  text-align: center !important;
+  cursor: pointer;
+}
+
+.btn {
+  padding: 0.25rem 0.4rem !important;
+}
+.btn-outline-danger {
+  color: transparent !important;
+  border-color: transparent !important;
+}
+.btn-outline-success {
+  color: transparent !important;
+  border-color: transparent !important;
+}
+
+a .btn {
+  padding: 0;
+}
+
+#addBtn {
+  padding: 0 !important;
+  margin-left: calc(100% - 32.7px);
+  margin-bottom: 0.5rem;
+}
+
+.backBtn {
+  padding: 0.25rem 0.4rem !important;
+}
+
+.btn-outline-dark {
+  padding: 0.35rem 0.35rem !important;
+}
+
+.btn-outline-danger:hover {
+  background-color: hsl(357, 91%, 35%);
+}
+
+.btn-outline-success:hover {
+  background-color: hsl(102, 85%, 15%);
 }
 
 .fas {
-    font-size: 1.2rem;
+  font-size: 1.2rem;
 }
 
-.fa-trash{
-    color: #f5222d;
+.fa-trash {
+  color: hsl(357, 91%, 55%);
 }
-.fa-edit{
-    color: #389e0d;
+.fa-edit {
+  color: hsl(102, 85%, 35%);
 }
 
 .diplay-5 .title {
@@ -119,9 +158,31 @@ tr .table > :not(caption) > * > * {
 ul {
   list-style: none;
 }
-.col-3{
-  width: clamp(50%,50%,100%) !important;
+.col-3 {
+  width: clamp(50%, 50%, 100%) !important;
 }
-th .icons{
-    border: none
+th .icons {
+  border: none;
+}
+form {
+  margin: 0 var(--margin-default) !important  ;
+}
+.submit-btn {
+  margin-top: var(--margin-default) !important;
+  text-align: center !important;
+}
+
+.submit-btn a {
+  color: transparent !important;
+}
+
+.submit-btn button {
+  background-color: var(--purple-6);
+  color: var(--purple-1);
+  border-color: var(--purple-6);
+  font-weight: bold;
+}
+.submit-btn button:hover {
+  color: var(--purple-9) !important;
+  filter: brightness(1.1) !important;
 }

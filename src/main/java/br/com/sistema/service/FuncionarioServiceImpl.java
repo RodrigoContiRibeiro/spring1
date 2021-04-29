@@ -6,20 +6,29 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class FuncionarioServiceImpl implements FuncionarioService {
+    //Implementação da interface para criar uma camada de serviço
 
+    //Acesso ao repositório
     @Autowired
     FuncionarioRepo funcionarioRepo;
 
+    //Sobrescrevendo os métodos da interface
+    @Override
     public List<Funcionario> findAll() {
         return funcionarioRepo.findAll();
     }
 
-    public Funcionario findById(Long id) {
-        return null;
-
+    @Override
+    public Optional<Funcionario> findById(Long id) {
+        return funcionarioRepo.findById(id);
     }
 
+    @Override
+    public Funcionario save(Funcionario funcionario) {
+        return funcionarioRepo.save(funcionario);
+    }
 }

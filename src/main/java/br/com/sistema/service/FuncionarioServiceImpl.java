@@ -28,7 +28,19 @@ public class FuncionarioServiceImpl implements FuncionarioService {
     }
 
     @Override
+    public String findByEmail(String email) {
+        return funcionarioRepo.findByEmail(email);
+    }
+
+    @Override
     public Funcionario save(Funcionario funcionario) {
         return funcionarioRepo.save(funcionario);
     }
+
+    @Override
+    public void deleteById(Long id) {
+        funcionarioRepo.deleteById(id);
+    }
+
+
 }

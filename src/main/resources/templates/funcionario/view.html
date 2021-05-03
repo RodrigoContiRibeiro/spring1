@@ -44,8 +44,8 @@
     </div>
 </nav>
 <!-- Formulário que não permite criar um novo funcionário somente visualizar uma linha específica -->
-<form th:object="${funcionario}"
-      class="form-floating">
+<form
+        class="form-floating">
     <div class="input group">
         <div class="form-floating mb-3">
             <input
@@ -53,8 +53,8 @@
                     class="form-control"
                     id="floatingInput"
                     placeholder="Identificador"
-                    disabled
-                    th:field="*{id}"
+                    readonly
+                    th:field="${funcionario.id}"
             >
             <label for="floatingInput">ID</label>
         </div>
@@ -64,8 +64,8 @@
                     class="form-control"
                     id="floatingInput"
                     placeholder="Nome"
-                    disabled
-                    th:field="*{nome}"
+                    readonly
+                    th:field="${funcionario.nome}"
             >
             <label for="floatingInput">Nome</label>
         </div>
@@ -75,8 +75,8 @@
                     class="form-control"
                     id="floatingPassword"
                     placeholder="Email"
-                    disabled
-                    th:field="*{email}"
+                    readonly
+                    th:field="${funcionario.email}"
             >
             <label for="floatingPassword">Email</label>
         </div>
@@ -86,17 +86,17 @@
                     class="form-control"
                     id="floatingPassword"
                     placeholder="Telefone"
-                    disabled
-                    th:field="*{telefone}"
+                    readonly
+                    th:field="${funcionario.telefone}"
             >
             <label for="floatingPassword">Telefone</label>
         </div>
         <div class="submit-btn">
-            <a th:href="@{/funcionario/edit/" + "">
-                <button type="submit" class="btn mb-3 backBtn">Editar</button>
-            </a>
             <a th:href="@{/funcionario/list}">
                 <button type="button" class="btn mb-3 backBtn">Voltar</button>
+            </a>
+            <a th:href="@{/funcionario/edit/{id}(id=${id})}">
+                <button type="button" class="btn mb-3 backBtn">Editar</button>
             </a>
         </div>
     </div>

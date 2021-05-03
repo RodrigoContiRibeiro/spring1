@@ -21,22 +21,46 @@ public class FuncionarioController {
         model.addAttribute("funcionarios", funcionarioService.findAll());
         return "funcionario/list";
     }
+
     //Manejando um Get para /funcionario/add e instanciando um Funcionario para depois ser postado
     @GetMapping("/funcionario/add")
     public String add(Model model) {
         model.addAttribute("funcionario", new Funcionario());
         return "funcionario/add";
     }
+
     //Manejando um Post para /funcionario/save para salvar na tabela
     @PostMapping("/funcionario/save")
-    public String save(Funcionario funcionario) {
-        funcionarioService.save(funcionario);
+    public String save(Model model, Funcionario funcionario) {
+        try {
+            if (funcionario != null) funcionarioService.save(funcionario);
+        } catch (Exception e) {
+            System.out.println("Erro ao salvar" + e.getMessage());
+        }
         return "redirect:/funcionario/list";
     }
+
     //Manejando um Get para /funcionario/{id} com um parâmetro dinâmico e usando dele para fazer um query na tabela
     @GetMapping("/funcionario/view/{id}")
-    public String viewFuncionario(Model model, @PathVariable long id){
+    public String view(Model model, @PathVariable long id) {
         model.addAttribute("funcionario", funcionarioService.findById(id));
         return "funcionario/view";
+    }
+
+    @GetMapping("/funcionario/edit/{id}")
+    public String edit(Model model, @PathVariable long id) {
+        model.addAttribute("funcionario", funcionarioService.findById(id));
+        return "funcionario/edit";
+    }
+
+    @GetMapping("/funcionario/delete/{id}")
+    public String delete(@PathVariable long id) {
+        try {
+            funcionarioService.deleteById(id);
+        } catch (Exception e) {
+            System.out.println("Erro: " + e.getMessage());
+        }
+        ;
+        return "redirect:/funcionario/list";
     }
 }

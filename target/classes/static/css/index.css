@@ -9,7 +9,7 @@
   --purple-8: #391085;
   --purple-9: #22075e;
   --purple-10: #120338;
-  --margin-default: 5vh;
+  --margin-default: 10vh;
   --padding-default: 5vh;
 }
 
@@ -78,10 +78,14 @@ tr .table > :not(caption) > * > * {
   background: var(--purple-3) !important;
 }
 
-i,
-.icons {
+i,{
   text-align: center !important;
   cursor: pointer;
+}
+
+.icons{
+  text-align: center !important;
+  cursor: auto;
 }
 
 .icons:hover {
@@ -98,6 +102,11 @@ i,
 .btn-outline-success {
   color: transparent !important;
   border-color: transparent !important;
+}
+.btn-outline-secondary {
+  color: transparent !important;
+  background: none !important;
+  border: none !important;
 }
 
 a .btn {
@@ -124,6 +133,16 @@ a .btn {
 
 .btn-outline-success:hover {
   background-color: transparent !important;
+}
+
+.btn-secondary {
+  border: none !important;
+  background: none !important;
+}
+
+.modal-buttons:hover {
+    filter: hue-rotate(25deg) drop-shadow(1px 1px 3px lightgray);
+//    hue-rotate(25deg) drop-shadow(1px 1px 3px lightgray)
 }
 
 .fas {
@@ -192,4 +211,11 @@ form {
 }
 .btn-check:focus + .btn, .btn:focus {
     box-shadow: 0 0 0 .25rem rgba(114, 46, 209, 0.3);
+}
+.modal-footer {
+    justify-content: center;
+    border: none;
+}
+.modal-header {
+    border: none;
 }

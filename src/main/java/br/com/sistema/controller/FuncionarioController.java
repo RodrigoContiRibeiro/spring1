@@ -32,12 +32,37 @@ public class FuncionarioController {
     //Manejando um Post para /funcionario/save para salvar na tabela
     @PostMapping("/funcionario/save")
     public String save(Model model, Funcionario funcionario) {
-        try {
-            if (funcionario != null) funcionarioService.save(funcionario);
-        } catch (Exception e) {
-            System.out.println("Erro ao salvar" + e.getMessage());
+        String erro = funcionarioService.validarFuncionario(funcionario);
+        if (!erro.equals("")) {
+            model.addAttribute("funcionario", funcionario);
+            model.addAttribute("erro", true);
+            model.addAttribute("erroMsg", erro);
+            return "funcionario/add";
         }
-        return "redirect:/funcionario/list";
+        if (funcionarioService.save(funcionario)) {
+            return "redirect:/funcionario/list";
+        } else {
+            System.out.println("Não Salvou");
+            model.addAttribute("funcionario", funcionario);
+            return "funcionario/add";
+        }
+    }
+
+    @PostMapping("/funcionario/update")
+    public String update(Model model, Funcionario funcionario) {
+        String erro = funcionarioService.validarFuncionario(funcionario);
+        if (!erro.equals("")) {
+            model.addAttribute("funcionario", funcionario);
+            model.addAttribute("erro", true);
+            model.addAttribute("erroMsg", erro);
+            return "funcionario/edit";
+        }
+        if (funcionarioService.save(funcionario)) {
+            return "redirect:/funcionario/list";
+        } else {
+            model.addAttribute("funcionario", funcionario);
+            return "funcionario/edit";
+        }
     }
 
     //Manejando um Get para /funcionario/{id} com um parâmetro dinâmico e usando dele para fazer um query na tabela
@@ -60,7 +85,6 @@ public class FuncionarioController {
         } catch (Exception e) {
             System.out.println("Erro: " + e.getMessage());
         }
-        ;
         return "redirect:/funcionario/list";
     }
 }

@@ -76,23 +76,55 @@
                 <td class="icons">
                     <!-- Botões para editar e/ou exclui uma linha específica -->
                     <a
-                            class="btn btn-outline-danger"
-                            th:href="@{/funcionario/delete/{id}(id=${funcionario.id})}"
-                    ><span><i class="fas fa-trash"></i></span
-                    ></a>
-                </td>
-                <td class="icons">
-                    <a
                             class="btn btn-outline-success"
                             th:href="@{/funcionario/edit/{id}(id=${funcionario.id})}"
                     ><span><i class="fas fa-edit"></i></span
                     ></a>
                 </td>
+                <td class="icons">
+                    <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                        <a
+                                class="btn btn-outline-danger">
+                            <span><i class="fas fa-trash"></i></span
+                            ></a>
+                    </button>
+                </td>
+                <!--PROBLEMA DE PERFORMANCE - UM MODAL PARA CADA LINHA!!!! -->
+                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                     tabindex="-1"
+                     aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="staticBackdropLabel">Realmente Deseja Deletar o
+                                    Funcionário?</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary modal-buttons" data-bs-dismiss="modal">
+                                    <a class="btn btn-outline-secondary">
+                                        <span><i class="fas fa-window-close"></i></span>
+                                    </a>
+                                </button>
+                                <button type="button" class="btn modal-buttons" data-bs-toggle="modal"
+                                        data-bs-target="#staticBackdrop">
+                                    <a
+                                            class="btn btn-outline-danger"
+                                            th:href="@{/funcionario/delete/{id}(id=${funcionario.id})}">
+                        <span><i class="fas fa-trash"></i></span
+                        ></a>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </tr>
             </tbody>
         </table>
     </div>
 </div>
+
 <!-- Importando os scripts do bootstrap -->
 <script th:src="@{/js/popper.min.js}"></script>
 <script th:src="@{/bootstrap-5.0.0/js/bootstrap.min.js}"></script>

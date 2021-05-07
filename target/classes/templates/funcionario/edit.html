@@ -46,10 +46,13 @@
 <!-- Formulário que não permite criar um novo funcionário somente visualizar uma linha específica -->
 <form
         action="#"
-        th:action="@{/funcionario/save}"
+        th:action="@{/funcionario/update}"
         method="post"
         th:object="${funcionario}"
         class="form-floating">
+    <div th:if="${erro}" class="alert alert-danger">
+        <span th:text="${erroMsg}"></span>
+    </div>
     <div class="input group">
         <div class="form-floating mb-3">
             <input

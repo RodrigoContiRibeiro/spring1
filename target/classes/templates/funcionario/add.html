@@ -51,7 +51,21 @@
         th:object="${funcionario}"
         class="form-floating"
 >
+    <div th:if="${erro}" class="alert alert-danger">
+        <span th:text="${erroMsg}"></span>
+    </div>
     <div class="input group">
+        <div class="form-floating mb-3">
+            <input
+                    type="number"
+                    class="form-control"
+                    id="floatingInput"
+                    placeholder="Identificador"
+                    disabled
+                    th:field="*{id}"
+            >
+            <label for="floatingInput">ID</label>
+        </div>
         <div class="form-floating mb-3">
             <input
                     type="text"

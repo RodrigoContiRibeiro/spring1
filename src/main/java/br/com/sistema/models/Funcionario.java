@@ -1,9 +1,6 @@
 package br.com.sistema.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -25,6 +22,10 @@ public class Funcionario {
     @Size(max=50)
     @NotNull
     private String telefone;
+
+    @OneToOne(cascade = CascadeType.MERGE)
+    @JoinColumn(name = "cargo_id", referencedColumnName = "id")
+    private Cargo cargo;
 
     //Getters & Setters
     public Long getId() {
@@ -51,6 +52,13 @@ public class Funcionario {
     public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
+    public Cargo getCargo() {
+        return cargo;
+    }
+    public void setCargo(Cargo cargo) {
+        this.cargo = cargo;
+    }
+
     //ToString sobrecarregado
     @Override
     public String toString() {
@@ -58,7 +66,8 @@ public class Funcionario {
                 "\nID: " + id +
                 "\nNome: " + nome +
                 "\nEmail: " + email +
-                "\nTelefone: " + telefone;
+                "\nTelefone: " + telefone +
+                "\nCargo: " + cargo;
 
     }
 }

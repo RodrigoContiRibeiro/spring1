@@ -46,7 +46,7 @@
 <!-- Botão que leva a página para criar novos funcionários -->
 <div class="container edit-modal">
     <a
-            th:href="@{/funcionario/add}"
+            th:href="@{/cargo/add}"
             class="btn btn-outline-dark"
             id="addBtn">
         <span><i class="fas fa-plus-circle btn-outline-dark"></i></span
@@ -62,24 +62,17 @@
             <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Nome</th>
-                <th scope="col">Email</th>
-                <th scope="col">Telefone</th>
-                <th scope="col" colspan="3">Cargo</th>
             </tr>
             </thead>
             <tbody>
             <!-- Iterando todos as linhas encontrados no tabela de funcionários -->
-            <tr th:each="funcionario: ${funcionarios}">
-                <th scope="row" th:text="${funcionario.id}"></th>
-                <td th:text="${funcionario.nome}"></td>
-                <td th:text="${funcionario.email}"></td>
-                <td th:text="${funcionario.telefone}"></td>
-                <td th:text="${funcionario.cargo.nome}"></td>
+            <tr th:each="cargo: ${cargos}">
+                <th scope="row" th:text="${cargo.id}"></th>
+                <td th:text="${cargo.nome}"></td>
                 <td class="icons">
                     <!-- Botões para editar e/ou exclui uma linha específica -->
                     <a
                             class="btn btn-outline-success"
-                            th:href="@{/funcionario/edit/{id}(id=${funcionario.id})}"
                     ><span><i class="fas fa-edit"></i></span
                     ></a>
                 </td>
@@ -99,7 +92,7 @@
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="staticBackdropLabel">Realmente Deseja Deletar o
-                                    Funcionário?</h5>
+                                    Cargo?</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                         aria-label="Close"></button>
                             </div>
@@ -113,9 +106,8 @@
                                         data-bs-target="#staticBackdrop">
                                     <a
                                             class="btn btn-outline-danger"
-                                            th:href="@{/funcionario/delete/{id}(id=${funcionario.id})}">
-                        <span><i class="fas fa-trash"></i></span
-                        ></a>
+                                    <span><i class="fas fa-trash"></i></span
+                                    ></a>
                                 </button>
                             </div>
                         </div>

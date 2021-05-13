@@ -63,7 +63,8 @@
                 <th scope="col">ID</th>
                 <th scope="col">Nome</th>
                 <th scope="col">Email</th>
-                <th scope="col" colspan="3">Telefone</th>
+                <th scope="col">Telefone</th>
+                <th scope="col" colspan="3">Cargo</th>
             </tr>
             </thead>
             <tbody>
@@ -73,6 +74,7 @@
                 <td th:text="${funcionario.nome}"></td>
                 <td th:text="${funcionario.email}"></td>
                 <td th:text="${funcionario.telefone}"></td>
+                <td th:text="${funcionario.cargo.nome}"></td>
                 <td class="icons">
                     <!-- Botões para editar e/ou exclui uma linha específica -->
                     <a

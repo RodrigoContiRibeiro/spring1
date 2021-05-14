@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-br">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>RodrigoSystems</title>
+    <!-- Importando a folha de estilo do bootstrap -->
+    <link
+            rel="stylesheet"
+            th:href="@{/bootstrap-5.0.0/css/bootstrap.min.css}"
+    />
+    <!-- Importando o fontawesome -->
+    <link rel="stylesheet" th:href="@{/fontawesome5.15.3/css/all.min.css}"/>
+    <!-- Importando a folha de estilo própria -->
+    <link rel="stylesheet" th:href="@{/css/index.css}"/>
+</head>
+<body>
+<!-- Navbar colapsável -->
+<nav class="navbar navbar-expand-md navbar-light">
+    <div class="container-fluid">
+        <!-- Link para a raiz -->
+        <a class="navbar-brand" th:href="@{/}">RodrigOSystemS</a>
+        <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+        >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link"> </a>
+                </li>
+            </ul>
+            <span class="navbar-text">
+            <strong>Bem-Vindo ao <mark>RodrigOSystemS</mark></strong>
+          </span>
+        </div>
+    </div>
+</nav>
+<!-- Formulário que não permite criar um novo funcionário somente visualizar uma linha específica -->
+<form
+        class="form-floating">
+    <div class="input group">
+        <div class="form-floating mb-3">
+            <input
+                    type="number"
+                    class="form-control"
+                    id="floatingInput"
+                    placeholder="Identificador"
+                    readonly
+                    th:field="${cargo.id}"
+            >
+            <label for="floatingInput">ID</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input
+                    type="text"
+                    class="form-control"
+                    id="floatingInput"
+                    placeholder="Nome"
+                    readonly
+                    th:field="${cargo.nome}"
+            >
+            <label for="floatingInput">Nome</label>
+        </div>
+        <div class="submit-btn">
+            <a th:href="@{/cargo/list}">
+                <button type="button" class="btn mb-3 backBtn">Voltar</button>
+            </a>
+            <a th:href="@{/cargo/edit/{id}(id=${id})}">
+                <button type="button" class="btn mb-3 backBtn">Editar</button>
+            </a>
+        </div>
+    </div>
+</form>
+<!-- Importando os scripts do bootstrap -->
+<script th:src="@{/js/popper.min.js}"></script>
+<script th:src="@{/bootstrap-5.0.0/js/bootstrap.min.js}"></script>
+</body>
+</html>

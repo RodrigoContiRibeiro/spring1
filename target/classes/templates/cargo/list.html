@@ -73,15 +73,16 @@
                     <!-- Botões para editar e/ou exclui uma linha específica -->
                     <a
                             class="btn btn-outline-success"
+                            th:href="@{/cargo/edit/{id}(id=${cargo.id})}"
                     ><span><i class="fas fa-edit"></i></span
                     ></a>
                 </td>
                 <td class="icons">
                     <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                         <a
-                                class="btn btn-outline-danger">
-                            <span><i class="fas fa-trash"></i></span
-                            ></a>
+                                class="btn btn-outline-danger"
+                        <span><i class="fas fa-trash"></i></span
+                        ></a>
                     </button>
                 </td>
                 <!--PROBLEMA DE PERFORMANCE - UM MODAL PARA CADA LINHA!!!! -->
@@ -106,6 +107,7 @@
                                         data-bs-target="#staticBackdrop">
                                     <a
                                             class="btn btn-outline-danger"
+                                            th:href="@{/cargo/delete/{id}(id=${cargo.id})}">
                                     <span><i class="fas fa-trash"></i></span
                                     ></a>
                                 </button>

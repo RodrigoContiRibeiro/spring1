@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class CargoController {
-
     @Autowired
     CargoServiceImpl cargoService;
 

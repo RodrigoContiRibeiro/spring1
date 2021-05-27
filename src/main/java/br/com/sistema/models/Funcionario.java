@@ -23,9 +23,13 @@ public class Funcionario {
     @NotNull
     private String telefone;
 
-    @OneToOne(cascade = CascadeType.MERGE)
+    @OneToOne(orphanRemoval = true)
     @JoinColumn(name = "cargo_id", referencedColumnName = "id")
     private Cargo cargo;
+
+    @ManyToOne
+    @JoinColumn(name = "projeto_id", nullable = false)
+    private Projeto projeto;
 
     //Getters & Setters
     public Long getId() {

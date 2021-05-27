@@ -1,5 +1,10 @@
+br/com/sistema/service/ProjetoService.class
+br/com/sistema/models/Projeto.class
+br/com/sistema/repository/ProjetoRepo.class
 br/com/sistema/models/Cargo.class
 br/com/sistema/service/CargoService.class
 br/com/sistema/controller/CargoController.class
+br/com/sistema/controller/ProjetoController.class
 br/com/sistema/service/CargoServiceImpl.class
+br/com/sistema/service/ProjetoServiceImpl.class
 br/com/sistema/repository/CargoRepo.class

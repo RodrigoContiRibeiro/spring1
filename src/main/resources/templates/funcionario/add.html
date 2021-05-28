@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="pt-br">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="pt-br"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -34,7 +35,13 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link"> </a>
+                    <a class="nav-link" th:href="@{/funcionario/list}">Funcionários</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/cargo/list}">Cargos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/projeto/list}">Projetos</a>
                 </li>
             </ul>
             <span class="navbar-text">
@@ -59,45 +66,45 @@
             <input
                     type="number"
                     class="form-control"
-                    id="floatingInput"
+                    id="floatingId"
                     placeholder="Identificador"
                     disabled
                     th:field="*{id}"
             >
-            <label for="floatingInput">ID</label>
+            <label for="floatingId">ID</label>
         </div>
         <div class="form-floating mb-3">
             <input
                     type="text"
                     class="form-control"
-                    id="floatingInput"
+                    id="floatingNome"
                     placeholder="Nome"
                     th:field="*{nome}"
                     required
             >
-            <label for="floatingInput">Nome</label>
+            <label for="floatingNome">Nome</label>
         </div>
         <div class="form-floating mb-3">
             <input
                     type="email"
                     class="form-control"
-                    id="floatingPassword"
+                    id="floatingEmail"
                     placeholder="Email"
                     th:field="*{email}"
                     required
             >
-            <label for="floatingPassword">Email</label>
+            <label for="floatingEmail">Email</label>
         </div>
         <div class="form-floating mb-3">
             <input
                     type="text"
                     class="form-control"
-                    id="floatingPassword"
+                    id="floatingTelefone"
                     placeholder="Telefone"
                     th:field="*{telefone}"
                     required
             >
-            <label for="floatingPassword">Telefone</label>
+            <label for="floatingTelefone">Telefone</label>
         </div>
         <div class="form-floating mb-3">
             <select
@@ -110,7 +117,7 @@
                 <option selected="selected" value="">Selecione o seu cargo</option>
                 <option th:each="cargo : ${cargos}" th:value="${cargo.id}" th:text="${cargo.nome}"></option>
             </select>
-            <label for="floatingPassword">Cargo</label>
+            <label for="floatingSelect">Cargo</label>
         </div>
         <div class="submit-btn">
             <a th:href="@{/funcionario/list}">

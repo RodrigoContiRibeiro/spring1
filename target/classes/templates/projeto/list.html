@@ -52,7 +52,7 @@
 <!-- Botão que leva a página para criar novos funcionários -->
 <div class="container edit-modal">
     <a
-            th:href="@{/cargo/add}"
+            th:href="@{/projeto/add}"
             class="btn btn-outline-dark"
             id="addBtn">
         <span><i class="fas fa-plus-circle btn-outline-dark"></i></span
@@ -68,27 +68,42 @@
             <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Nome</th>
+                <th scope="col">Status</th>
+                <th scope="col">Risco</th>
+                <th scope="col">Orçamento</th>
+                <th scope="col">Data de Início</th>
+                <th scope="col">Data de Fim</th>
+                <th scope="col">Funcionários</th>
+                <th scope="col" colspan="3">Gerente</th>
+                <!-- TODO tabela coms o funcionário usando o id_projeto deles como query -->
             </tr>
             </thead>
             <tbody>
             <!-- Iterando todos as linhas encontrados no tabela de funcionários -->
-            <tr th:each="cargo: ${cargos}">
-                <th scope="row" th:text="${cargo.id}"></th>
-                <td th:text="${cargo.nome}"></td>
+            <tr th:each="projeto: ${projetos}">
+                <th scope="row" th:text="${projeto.id}"></th>
+                <td th:text="${projeto.nome}"></td>
+                <td th:text="${projeto.status}"></td>
+                <td th:text="${projeto.risco}"></td>
+                <td th:text="${projeto.orcamento}"></td>
+                <td th:text="${projeto.dtInicio}"></td>
+                <td th:text="${projeto.dtFim}"></td>
+                <td><a th:href="@{/projeto/funcionarios/{id}(id=${projeto.id})}">Lista de Funcionários</a></td>
+                <td th:text="${projeto.gerente.nome}"></td>
                 <td class="icons">
                     <!-- Botões para editar e/ou exclui uma linha específica -->
                     <a
                             class="btn btn-outline-success"
-                            th:href="@{/cargo/edit/{id}(id=${cargo.id})}"
+                            th:href="@{/projeto/edit/{id}(id=${projeto.id})}"
                     ><span><i class="fas fa-edit"></i></span
                     ></a>
                 </td>
                 <td class="icons">
                     <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                         <a
-                                class="btn btn-outline-danger"
-                        <span><i class="fas fa-trash"></i></span
-                        ></a>
+                                class="btn btn-outline-danger">
+                            <span><i class="fas fa-trash"></i></span
+                            ></a>
                     </button>
                 </td>
                 <!--PROBLEMA DE PERFORMANCE - UM MODAL PARA CADA LINHA!!!! -->
@@ -99,7 +114,7 @@
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="staticBackdropLabel">Realmente Deseja Deletar o
-                                    Cargo?</h5>
+                                    Projeto?</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                         aria-label="Close"></button>
                             </div>
@@ -113,9 +128,9 @@
                                         data-bs-target="#staticBackdrop">
                                     <a
                                             class="btn btn-outline-danger"
-                                            th:href="@{/cargo/delete/{id}(id=${cargo.id})}">
-                                    <span><i class="fas fa-trash"></i></span
-                                    ></a>
+                                            th:href="@{/projeto/delete/{id}(id=${projeto.id})}">
+                        <span><i class="fas fa-trash"></i></span
+                        ></a>
                                 </button>
                             </div>
                         </div>

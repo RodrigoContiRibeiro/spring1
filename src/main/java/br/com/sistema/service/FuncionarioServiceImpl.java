@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.thymeleaf.util.StringUtils;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -22,6 +23,11 @@ public class FuncionarioServiceImpl implements FuncionarioService {
     @Override
     public List<Funcionario> findAll() {
         return funcionarioRepo.findAll(Sort.by(Sort.Direction.ASC, "nome"));
+    }
+
+    @Override
+    public List<Funcionario> findByProjeto(long id) {
+        return funcionarioRepo.findByProjeto(id);
     }
 
     @Override

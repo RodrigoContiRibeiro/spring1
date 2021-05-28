@@ -49,14 +49,13 @@
         </div>
     </div>
 </nav>
-<!-- Formulário que ativa o mapeamento do controlador para salvar, ou seja, cria um novo Funcionario na tabela -->
+<!-- Formulário que não permite criar um novo funcionário somente visualizar uma linha específica -->
 <form
         action="#"
-        th:action="@{/cargo/save}"
+        th:action="@{/cargo/update}"
         method="post"
         th:object="${cargo}"
-        class="form-floating"
->
+        class="form-floating">
     <div th:if="${erro}" class="alert alert-danger">
         <span th:text="${erroMsg}"></span>
     </div>
@@ -67,7 +66,7 @@
                     class="form-control"
                     id="floatingInput"
                     placeholder="Identificador"
-                    disabled
+                    readonly
                     th:field="*{id}"
             >
             <label for="floatingInput">ID</label>
@@ -79,15 +78,14 @@
                     id="floatingInput"
                     placeholder="Nome"
                     th:field="*{nome}"
-                    required
             >
             <label for="floatingInput">Nome</label>
         </div>
-        <div class="submit-btn">
-            <a th:href="@{/funcionario/list}">
-                <button type="button" class="btn mb-3">Voltar</button>
+       <div class="submit-btn">
+            <a th:href="@{/cargo/list}">
+                <button type="button" class="btn mb-3 backBtn">Voltar</button>
             </a>
-            <button type="submit" class="btn mb-3">Criar</button>
+            <button type="submit" class="btn mb-3 backBtn">Editar</button>
         </div>
     </div>
 </form>

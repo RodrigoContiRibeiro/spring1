@@ -68,28 +68,30 @@
             <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Nome</th>
+                <th scope="col">Descrição</th>
                 <th scope="col">Status</th>
                 <th scope="col">Risco</th>
                 <th scope="col">Orçamento</th>
                 <th scope="col">Data de Início</th>
                 <th scope="col">Data de Fim</th>
-                <th scope="col">Funcionários</th>
-                <th scope="col" colspan="3">Gerente</th>
+                <th scope="col">Gerente</th>
+                <th scope="col" colspan="3">Funcionários</th>
                 <!-- TODO tabela coms o funcionário usando o id_projeto deles como query -->
             </tr>
             </thead>
             <tbody>
-            <!-- Iterando todos as linhas encontrados no tabela de funcionários -->
+            <!-- Iterando todos as linhas encontrados no tabela de projeto -->
             <tr th:each="projeto: ${projetos}">
                 <th scope="row" th:text="${projeto.id}"></th>
                 <td th:text="${projeto.nome}"></td>
+                <td th:text="${projeto.descricao}"></td>
                 <td th:text="${projeto.status}"></td>
                 <td th:text="${projeto.risco}"></td>
-                <td th:text="${projeto.orcamento}"></td>
-                <td th:text="${projeto.dtInicio}"></td>
-                <td th:text="${projeto.dtFim}"></td>
-                <td><a th:href="@{/projeto/funcionarios/{id}(id=${projeto.id})}">Lista de Funcionários</a></td>
+                <td th:text="${'R$ ' + #numbers.formatDecimal(projeto.orcamento, 3, 'POINT', 2,'COMMA')}"></td>
+                <td th:text="${#dates.format(projeto.dtInicio, 'dd/MM/yyyy')}"></td>
+                <td th:text="${#dates.format(projeto.dtFim, 'dd/MM/yyyy')}"></td>
                 <td th:text="${projeto.gerente.nome}"></td>
+                <td><a th:href="@{/projeto/funcionarios/{id}(id=${projeto.id})}">Lista de Funcionários</a></td>
                 <td class="icons">
                     <!-- Botões para editar e/ou exclui uma linha específica -->
                     <a

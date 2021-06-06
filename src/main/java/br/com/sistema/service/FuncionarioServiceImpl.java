@@ -94,4 +94,14 @@ public class FuncionarioServiceImpl implements FuncionarioService {
         erro = StringUtils.join(erros, ", ");
         return erro;
     }
+
+    @Override
+    public List<Funcionario> findGerentes() {
+        return funcionarioRepo.findGerentes();
+    }
+
+    @Override
+    public List<Funcionario> findNotGerentes() {
+        return funcionarioRepo.findNotGerentes();
+    }
 }

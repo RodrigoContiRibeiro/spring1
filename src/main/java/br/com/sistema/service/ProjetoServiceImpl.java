@@ -34,6 +34,11 @@ public class ProjetoServiceImpl implements ProjetoService {
     }
 
     @Override
+    public void deleteById(Long id) {
+        projetoRepo.deleteById(id);
+    }
+
+    @Override
     public boolean save(Projeto projeto) {
         try {
             if (projeto != null) {
@@ -52,13 +57,16 @@ public class ProjetoServiceImpl implements ProjetoService {
     public String validarProjeto(Projeto projeto) {
         ArrayList<String> erros = new ArrayList<>();
         String erro = "";
-        if(projeto.getId() != null){
-            if(!findById(projeto.getId()).getNome().equals(projeto.getNome())){
-                if(findByNome(projeto.getNome()) != null){
-                    erros.add("Nome já cadastrado");
+        if (projeto.getId() != null) { //Editando
+            if (!findById(projeto.getId()).getNome().equals(projeto.getNome())) {
+                if (findByNome(projeto.getNome()) != null) {
+                    erros.add("Nome já cadastrado Editando");
                 }
             }
-
+        } else {
+            if (findByNome(projeto.getNome()) != null) {
+                erros.add("Nome já cadastrado Criando");
+            }
         }
         erro = StringUtils.join(erros, ", ");
         return erro;

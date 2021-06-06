@@ -10,6 +10,8 @@ public interface ProjetoService {
     public Projeto findById(Long id);
     public Projeto findByNome(String nome);
 
+    public void deleteById(Long id);
+
     public boolean save(Projeto projeto);
 
     public String validarProjeto(Projeto projeto);

@@ -1,10 +1,9 @@
-br/com/sistema/service/ProjetoService.class
+br/com/sistema/models/Funcionario.class
 br/com/sistema/models/Projeto.class
+br/com/sistema/service/FuncionarioServiceImpl.class
 br/com/sistema/repository/ProjetoRepo.class
+br/com/sistema/service/FuncionarioService.class
 br/com/sistema/models/Cargo.class
-br/com/sistema/service/CargoService.class
-br/com/sistema/controller/CargoController.class
-br/com/sistema/controller/ProjetoController.class
-br/com/sistema/service/CargoServiceImpl.class
-br/com/sistema/service/ProjetoServiceImpl.class
+br/com/sistema/repository/FuncionarioRepo.class
 br/com/sistema/repository/CargoRepo.class
+br/com/sistema/controller/FuncionarioController.class

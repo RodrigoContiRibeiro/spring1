@@ -3,6 +3,7 @@ package br.com.sistema.models;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 @Entity(name = "funcionario")
 public class Funcionario {
@@ -27,9 +28,8 @@ public class Funcionario {
     @JoinColumn(name = "cargo_id", referencedColumnName = "id")
     private Cargo cargo;
 
-    @ManyToOne
-    @JoinColumn(name = "projeto_id", nullable = false)
-    private Projeto projeto;
+    @ManyToMany(mappedBy = "funcionarios")
+    private List<Projeto> projetos;
 
     //Getters & Setters
     public Long getId() {
@@ -61,6 +61,12 @@ public class Funcionario {
     }
     public void setCargo(Cargo cargo) {
         this.cargo = cargo;
+    }
+    public List<Projeto> getProjetos() {
+        return projetos;
+    }
+    public void setProjetos(List<Projeto> projetos) {
+        this.projetos = projetos;
     }
 
     //ToString sobrecarregado

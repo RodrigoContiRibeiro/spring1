@@ -1,0 +1,183 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="pt-br"
+      xmlns:xsi="http://www.w3.org/2001/xmlschema-instance" xsi:schemalocation="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>RodrigOSystemS</title>
+    <!-- importando a folha de estilo do bootstrap -->
+    <link
+            rel="stylesheet"
+            th:href="@{/bootstrap-5.0.0/css/bootstrap.min.css}"
+    />
+    <!-- importando o fontawesome -->
+    <link rel="stylesheet" th:href="@{/fontawesome5.15.3/css/all.min.css}"/>
+    <!-- importando a folha de estilo própria -->
+    <link rel="stylesheet" th:href="@{/css/index.css}"/>
+</head>
+<body>
+<!-- navbar colapsável -->
+<nav class="navbar navbar-expand-md navbar-light">
+    <div class="container-fluid">
+        <!-- link para a raiz -->
+        <a class="navbar-brand" th:href="@{/}">RodrigOSystemS</a>
+        <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarsupportedcontent"
+                aria-controls="navbarsupportedcontent"
+                aria-expanded="false"
+                aria-label="toggle navigation"
+        >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarsupportedcontent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/funcionario/list}">Funcionários</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/cargo/list}">Cargos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/projeto/list}">Projetos</a>
+                </li>
+            </ul>
+            <span class="navbar-text">
+            <strong>bem-vindo ao <mark>RodrigOSystemS</mark></strong>
+          </span>
+        </div>
+    </div>
+</nav>
+<!-- formulário que ativa o mapeamento do controlador para salvar, ou seja, cria um novo funcionario na tabela -->
+<form
+        action="#"
+        th:action="@{/projeto/update}"
+        method="post"
+        th:object="${projeto}"
+        class="form-floating"
+>
+    <div th:if="${erro}" class="alert alert-danger">
+        <span th:text="${erroMsg}"></span>
+    </div>
+    <div class="input group">
+        <div class="form-floating mb-3">
+            <input
+                    type="number"
+                    class="form-control"
+                    id="floatingID"
+                    placeholder="Identificador"
+                    readonly
+                    th:field="*{id}"
+            >
+            <label for="floatingID">ID</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input
+                    type="text"
+                    class="form-control"
+                    id="floatingNome"
+                    placeholder="Nome"
+                    th:field="*{nome}"
+                    required
+            >
+            <label for="floatingNome">Nome</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input
+                    type="text"
+                    class="form-control"
+                    id="floatingDescricao"
+                    placeholder="Descrição"
+                    th:field="*{descricao}"
+                    required
+            >
+            <label for="floatingDescricao">Descrição</label>
+        </div>
+        <div class="form-floating mb-3">
+            <select
+                    class="form-select"
+                    id="floatingStatus"
+                    aria-label="Selecione o Status"
+                    th:field="*{status}"
+                    required
+            >
+                <option value="Cancelado">Cancelado</option>
+                <option value="Planejado">Planejado</option>
+                <option value="Iniciado">Iniciado</option>
+                <option value="Em andamento">Em andamento</option>
+                <option value="Finalizado">Finalizado</option>
+            </select>
+            <label for="floatingStatus">Selecione o Status</label>
+        </div>
+        <div class="form-floating mb-3">
+            <select class="form-select"
+                    id="floatingRisco"
+                    aria-label="Selecione o risco"
+                    th:field="*{risco}"
+                    required
+            >
+                <option value="Baixo">Baixo</option>
+                <option value="Mediano">Mediano</option>
+                <option value="Alto">Alto</option>
+            </select>
+            <label for="floatingRisco">Selecione o Risco</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="number"
+                   class="form-control"
+                   id="floatingOrcamento"
+                   placeholder="Orçamento"
+                   th:field="*{orcamento}"
+                   required>
+            <label for="floatingOrcamento">Orçamento</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="date"
+                   class="form-control"
+                   id="floatingDataInicial"
+                   placeholder="Data Inicial"
+                   th:field="*{dtInicio}"
+                   required>
+            <label for="floatingDataInicial">Data Inicial</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="date"
+                   class="form-control"
+                   id="floatingDataFinal"
+                   placeholder="Data Final"
+                   th:field="*{dtFim}"
+                   required>
+            <label for="floatingDataFinal">Data Final</label>
+        </div>
+        <div class="form-floating mb-3">
+            <select
+                    class="form-control"
+                    id="floatingGerente"
+                    placeholder="Gerente"
+                    th:field="*{gerente.id}"
+                    required
+            >
+                <option
+                        th:each="gerente : ${gerentes}"
+                        th:value="${gerente.id}"
+                        th:text="${gerente.nome}"
+                >
+                </option>
+            </select>
+            <label for="floatingGerente">Gerente</label>
+        </div>
+        <div class="submit-btn">
+            <a th:href="@{/projeto/list}">
+                <button type="button" class="btn mb-3">Voltar</button>
+            </a>
+            <button type="submit" class="btn mb-3">Criar</button>
+        </div>
+    </div>
+</form>
+<!-- importando os scripts do bootstrap -->
+<script th:src="@{/js/popper.min.js}"></script>
+<script th:src="@{/bootstrap-5.0.0/js/bootstrap.min.js}"></script>
+</body>
+</html>

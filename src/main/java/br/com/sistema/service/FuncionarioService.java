@@ -15,5 +15,7 @@ public interface FuncionarioService {
     public boolean save(Funcionario funcionario);
     public void deleteById(Long id);
     public String validarFuncionario(Funcionario funcionario);
+    public List<Funcionario> findGerentes();
+    public List<Funcionario> findNotGerentes();
 
 }
